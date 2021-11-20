@@ -1,15 +1,10 @@
 <template>
   <nav>
     <ul>
-      <li>
-        <router-link to="/home">HOME</router-link>
+      <li v-for="item in dropDownItems " :key="item.title">
+        <router-link :to="item.route">{{item.title}}</router-link>
       </li>
-      <li>
-        <router-link to="/about">ABOUT</router-link>
-      </li>
-       <li>
-        <router-link to="/faq">FAQ</router-link>
-      </li>
+      
     </ul>
   </nav>
 </template>
@@ -18,7 +13,11 @@
 export default {
   data() {
     return {
-      homeItems: ["HOME","AboutUs"],
+      dropDownItems:[
+        {title:'Home',route:'/home'},
+        {title:'About', route:'/about'},
+        {title:'Faq',route:'/faq'}
+      ]
     };
   },
   computed:{

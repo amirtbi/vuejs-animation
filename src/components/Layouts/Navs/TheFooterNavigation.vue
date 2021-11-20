@@ -1,8 +1,8 @@
 <template>
-    <nav>
+  <nav>
     <ul>
-      <li v-for="item in footerItems" :key="item">
-        <a href="#">{{ item }}</a>
+      <li v-for="item in dropDownItems" :key="item.title">
+        <router-link :to="item.route">{{ item.title }}</router-link>
       </li>
     </ul>
   </nav>
@@ -10,12 +10,16 @@
 
 <script>
 export default {
-    data() {
-        return {
-            footerItems:['Home','About','FAQ'],
-        }
-    },
-}
+  data() {
+    return {
+      dropDownItems: [
+        { title: "Home", route: "/home" },
+        { title: "About", route: "/about" },
+        { title: "Faq", route: "/faq" },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -26,8 +30,7 @@ ul {
   justify-content: flex-start;
   align-content: center;
   padding: 0;
-  margin:0;
-  ;
+  margin: 0;
 }
 li {
   padding: 1.2rem;
@@ -36,9 +39,9 @@ a {
   color: rgb(214, 0, 214);
   text-decoration: none;
   font-size: 1.5rem;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
 }
-a:hover{
-    color: white;
+a:hover {
+  color: white;
 }
 </style>
